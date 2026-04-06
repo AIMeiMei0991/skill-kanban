@@ -5,6 +5,7 @@
     "registry": "claude-plugins-official",
     "description": "开发工作流技能包，覆盖从需求到上线的完整研发流程：头脑风暴、TDD、调试、代码审查、多 agent 规划与发布",
     "install_command": "claude plugin install superpowers@claude-plugins-official",
+    "type": "plugin",
     "skill_ids": [
       "brainstorming",
       "dispatching-parallel-agents",
@@ -20,7 +21,8 @@
       "verification-before-completion",
       "writing-plans",
       "writing-skills"
-    ]
+    ],
+    "url": "https://github.com/obra/superpowers"
   },
   {
     "id": "pua",
@@ -28,6 +30,7 @@
     "registry": "pua-skills",
     "description": "高强度目标导向的 AI 驱动框架，以企业绩效文化逼迫 AI 穷尽一切手段解决问题，多种语言与风格模式可选",
     "install_command": "claude plugin install pua@pua-skills",
+    "type": "plugin",
     "skill_ids": [
       "pua",
       "pua-en",
@@ -40,7 +43,8 @@
       "p7",
       "p9",
       "p10"
-    ]
+    ],
+    "url": "https://github.com/tanweai/pua"
   },
   {
     "id": "figma",
@@ -48,6 +52,7 @@
     "registry": "claude-plugins-official",
     "description": "Figma 设计工具全流程支持：设计稿转代码、组件库生成、Code Connect 映射、设计系统规则生成",
     "install_command": "claude plugin install figma@claude-plugins-official",
+    "type": "plugin",
     "skill_ids": [
       "figma-code-connect",
       "figma-create-design-system-rules",
@@ -60,10 +65,11 @@
   },
   {
     "id": "example-skills",
-    "name": "example-skills",
+    "name": "anthropic",
     "registry": "anthropic-agent-skills",
     "description": "Anthropic 官方示例技能包，涵盖文档创作、前端设计、PDF/Excel/PPT 处理、算法艺术等 17 项生产力技能",
     "install_command": "claude plugin install example-skills@anthropic-agent-skills",
+    "type": "plugin",
     "skill_ids": [
       "algorithmic-art",
       "brand-guidelines",
@@ -82,7 +88,8 @@
       "web-artifacts-builder",
       "webapp-testing",
       "xlsx"
-    ]
+    ],
+    "url": "https://github.com/anthropics/skills/tree/main/skills"
   },
   {
     "id": "web-access",
@@ -90,7 +97,63 @@
     "registry": "web-access",
     "description": "为 Claude Code 提供完整联网能力：网页搜索、URL 抓取、内容解析，支持实时信息查询",
     "install_command": "claude plugin install web-access@web-access",
-    "skill_ids": ["web-access"]
+    "type": "plugin",
+    "skill_ids": [
+      "web-access"
+    ],
+    "url": "https://github.com/eze-is/web-access"
+  },
+  {
+    "id": "claude-mem",
+    "name": "claude-mem",
+    "registry": "thedotmack",
+    "description": "跨会话持久记忆：自动捕获工作上下文，AI 压缩摘要，向量搜索历史，Web UI 可视化记忆流",
+    "install_command": "npx claude-mem install",
+    "type": "memory",
+    "has_worker": true,
+    "worker_port": 37777,
+    "worker_runtime": "bun",
+    "web_ui": "http://localhost:37777",
+    "skill_ids": [
+      "mem-search",
+      "do",
+      "make-plan",
+      "smart-explore",
+      "timeline-report",
+      "version-bump"
+    ],
+    "url": "https://github.com/thedotmack/claude-mem"
+  },
+  {
+    "id": "impeccable",
+    "name": "impeccable",
+    "registry": "pbakaus",
+    "description": "AI 设计流畅性技能包：覆盖排版、色彩、布局、动效的专业设计语言，20 个设计命令形成完整设计工作流",
+    "install_command": "npx skills add pbakaus/impeccable",
+    "type": "plugin",
+    "skill_ids": [
+      "impeccable-audit",
+      "impeccable-critique",
+      "impeccable-normalize",
+      "impeccable-polish",
+      "impeccable-optimize",
+      "impeccable-harden",
+      "impeccable-quieter",
+      "impeccable-bolder",
+      "impeccable-clarify",
+      "impeccable-distill",
+      "impeccable-adapt",
+      "impeccable-animate",
+      "impeccable-colorize",
+      "impeccable-delight",
+      "impeccable-onboard",
+      "impeccable-typeset",
+      "impeccable-arrange",
+      "impeccable-overdrive",
+      "impeccable-teach",
+      "impeccable-extract"
+    ],
+    "url": "https://github.com/pbakaus/impeccable"
   },
   {
     "id": "local",
@@ -98,6 +161,9 @@
     "registry": "",
     "description": "手动安装到 ~/.claude/skills/ 的本地 skill，无标准包管理",
     "install_command": "",
-    "skill_ids": ["ux-audit"]
+    "type": "local",
+    "skill_ids": [
+      "ux-audit"
+    ]
   }
 ]

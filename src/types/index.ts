@@ -9,14 +9,19 @@ export interface Skill {
   shortcuts?: string[]
   sub_skills?: string[]
   dependencies?: string[]
+  category?: string
+  url?: string
 }
 
 export interface SkillFlow {
   id: string
   name: string
-  skill_ids: string[]
+  description?: string
+  plugin_ids: string[]
   created_at: string
 }
+
+export type PluginType = 'plugin' | 'memory' | 'local'
 
 export interface Plugin {
   id: string
@@ -25,4 +30,10 @@ export interface Plugin {
   description: string
   install_command: string
   skill_ids: string[]
+  type?: PluginType
+  has_worker?: boolean
+  worker_port?: number
+  worker_runtime?: string
+  web_ui?: string
+  url?: string
 }
