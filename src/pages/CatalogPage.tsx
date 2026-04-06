@@ -1,48 +1,70 @@
 import { useState, useMemo } from 'react'
 import { Search } from 'lucide-react'
+import pluginsData from '../data/plugins.json'
 import skillsData from '../data/skills.json'
-import type { Skill } from '../types'
+import type { Plugin, Skill } from '../types'
+import PluginHeader from '../components/PluginHeader'
 import SkillCard from '../components/SkillCard'
-import SkillDetail from '../components/SkillDetail'
 
+const plugins = pluginsData as Plugin[]
 const skills = skillsData as Skill[]
-const allTags = [...new Set(skills.flatMap(s => s.tags))].sort()
+const skillMap = Object.fromEntries(skills.map(s => [s.id, s]))
 
 export default function CatalogPage() {
+  const [selectedPluginId, setSelectedPluginId] = useState<string>(plugins[0]?.id ?? '')
   const [query, setQuery] = useState('')
-  const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
-  const [selected, setSelected] = useState<Skill | null>(null)
 
-  const filtered = useMemo(() => {
-    return skills.filter(skill => {
-      const matchesQuery =
-        query === '' ||
-        skill.name.toLowerCase().includes(query.toLowerCase()) ||
-        skill.description.toLowerCase().includes(query.toLowerCase())
-      const matchesTags =
-        activeTags.size === 0 || skill.tags.some(t => activeTags.has(t))
-      return matchesQuery && matchesTags
-    })
-  }, [query, activeTags])
+  const selectedPlugin = plugins.find(p => p.id === selectedPluginId) ?? plugins[0]
 
-  function toggleTag(tag: string) {
-    setActiveTags(prev => {
-      const next = new Set(prev)
-      next.has(tag) ? next.delete(tag) : next.add(tag)
-      return next
-    })
-  }
+  const pluginSkills = useMemo(() => {
+    return selectedPlugin.skill_ids
+      .map(id => skillMap[id])
+      .filter(Boolean) as Skill[]
+  }, [selectedPlugin])
+
+  const filteredSkills = useMemo(() => {
+    if (!query.trim()) return pluginSkills
+    const q = query.toLowerCase()
+    return pluginSkills.filter(
+      s =>
+        s.name.toLowerCase().includes(q) ||
+        s.description.toLowerCase().includes(q)
+    )
+  }, [pluginSkills, query])
 
   return (
-    <div className="flex gap-6">
-      {/* Left: catalog */}
+    <div className="flex gap-0 min-h-[600px]">
+      {/* Left sidebar */}
+      <nav className="w-44 shrink-0 border-r border-border pr-4 mr-6">
+        <p className="text-xs font-mono text-muted uppercase tracking-wider mb-3">插件包</p>
+        <ul className="space-y-0.5">
+          {plugins.map(plugin => (
+            <li key={plugin.id}>
+              <button
+                onClick={() => { setSelectedPluginId(plugin.id); setQuery('') }}
+                className={`w-full text-left px-3 py-2 rounded text-sm font-mono transition-colors ${
+                  plugin.id === selectedPluginId
+                    ? 'bg-accent text-white'
+                    : 'text-muted hover:text-text hover:bg-surface'
+                }`}
+              >
+                {plugin.name}
+                <span className="block text-[10px] opacity-60 mt-0.5">
+                  {plugin.skill_ids.length} skills
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Main content */}
       <div className="flex-1 min-w-0">
-        {/* Search */}
-        <div className="relative mb-4">
+        <div className="relative mb-5">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input
             type="text"
-            placeholder="搜索 skill..."
+            placeholder={`搜索 ${selectedPlugin.name} skills...`}
             value={query}
             onChange={e => setQuery(e.target.value)}
             className="w-full bg-surface border border-border rounded-lg pl-9 pr-4 py-2 text-sm
@@ -50,46 +72,31 @@ export default function CatalogPage() {
           />
         </div>
 
-        {/* Tag filters */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
-          {allTags.map(tag => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`text-xs font-mono px-2.5 py-1 rounded border transition-colors ${
-                activeTags.has(tag)
-                  ? 'bg-accent border-accent text-white'
-                  : 'bg-surface border-border text-muted hover:text-text hover:border-accent/50'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+        <PluginHeader
+          plugin={selectedPlugin}
+          skillCount={selectedPlugin.skill_ids.length}
+        />
 
-        {/* Results count */}
         <p className="text-xs text-muted mb-4 font-mono">
-          {filtered.length} / {skills.length} skills
+          {filteredSkills.length} / {pluginSkills.length} skills
         </p>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {filtered.map(skill => (
+          {filteredSkills.map(skill => (
             <SkillCard
               key={skill.id}
               skill={skill}
-              onSelect={setSelected}
+              pluginId={selectedPlugin.id === 'local' ? undefined : selectedPlugin.id}
             />
           ))}
         </div>
-      </div>
 
-      {/* Right: detail panel */}
-      {selected && (
-        <div className="w-80 shrink-0">
-          <SkillDetail skill={selected} onClose={() => setSelected(null)} />
-        </div>
-      )}
+        {filteredSkills.length === 0 && (
+          <p className="text-sm text-muted font-mono text-center py-12">
+            没有匹配的 skill
+          </p>
+        )}
+      </div>
     </div>
   )
 }
