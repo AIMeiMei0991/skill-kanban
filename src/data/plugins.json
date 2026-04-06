@@ -1,0 +1,103 @@
+[
+  {
+    "id": "superpowers",
+    "name": "superpowers",
+    "registry": "claude-plugins-official",
+    "description": "开发工作流技能包，覆盖从需求到上线的完整研发流程：头脑风暴、TDD、调试、代码审查、多 agent 规划与发布",
+    "install_command": "claude plugin install superpowers@claude-plugins-official",
+    "skill_ids": [
+      "brainstorming",
+      "dispatching-parallel-agents",
+      "executing-plans",
+      "finishing-a-development-branch",
+      "receiving-code-review",
+      "requesting-code-review",
+      "subagent-driven-development",
+      "systematic-debugging",
+      "test-driven-development",
+      "using-git-worktrees",
+      "using-superpowers",
+      "verification-before-completion",
+      "writing-plans",
+      "writing-skills"
+    ]
+  },
+  {
+    "id": "pua",
+    "name": "pua",
+    "registry": "pua-skills",
+    "description": "高强度目标导向的 AI 驱动框架，以企业绩效文化逼迫 AI 穷尽一切手段解决问题，多种语言与风格模式可选",
+    "install_command": "claude plugin install pua@pua-skills",
+    "skill_ids": [
+      "pua",
+      "pua-en",
+      "pua-ja",
+      "pua-loop",
+      "pro",
+      "shot",
+      "yes",
+      "mama",
+      "p7",
+      "p9",
+      "p10"
+    ]
+  },
+  {
+    "id": "figma",
+    "name": "figma",
+    "registry": "claude-plugins-official",
+    "description": "Figma 设计工具全流程支持：设计稿转代码、组件库生成、Code Connect 映射、设计系统规则生成",
+    "install_command": "claude plugin install figma@claude-plugins-official",
+    "skill_ids": [
+      "figma-code-connect",
+      "figma-create-design-system-rules",
+      "figma-create-new-file",
+      "figma-generate-design",
+      "figma-generate-library",
+      "figma-implement-design",
+      "figma-use"
+    ]
+  },
+  {
+    "id": "example-skills",
+    "name": "example-skills",
+    "registry": "anthropic-agent-skills",
+    "description": "Anthropic 官方示例技能包，涵盖文档创作、前端设计、PDF/Excel/PPT 处理、算法艺术等 17 项生产力技能",
+    "install_command": "claude plugin install example-skills@anthropic-agent-skills",
+    "skill_ids": [
+      "algorithmic-art",
+      "brand-guidelines",
+      "canvas-design",
+      "claude-api",
+      "doc-coauthoring",
+      "docx",
+      "frontend-design",
+      "internal-comms",
+      "mcp-builder",
+      "pdf",
+      "pptx",
+      "skill-creator",
+      "slack-gif-creator",
+      "theme-factory",
+      "web-artifacts-builder",
+      "webapp-testing",
+      "xlsx"
+    ]
+  },
+  {
+    "id": "web-access",
+    "name": "web-access",
+    "registry": "web-access",
+    "description": "为 Claude Code 提供完整联网能力：网页搜索、URL 抓取、内容解析，支持实时信息查询",
+    "install_command": "claude plugin install web-access@web-access",
+    "skill_ids": ["web-access"]
+  },
+  {
+    "id": "local",
+    "name": "本地安装",
+    "registry": "",
+    "description": "手动安装到 ~/.claude/skills/ 的本地 skill，无标准包管理",
+    "install_command": "",
+    "skill_ids": ["ux-audit"]
+  }
+]
