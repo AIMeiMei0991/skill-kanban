@@ -55,6 +55,64 @@
   animation: fade-in 0.2s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
 
+/* ── View Transitions API — Tab 切换方向感 ── */
+@keyframes vt-slide-out {
+  to { opacity: 0; transform: translateX(-10px); }
+}
+@keyframes vt-slide-in {
+  from { opacity: 0; transform: translateX(14px); }
+}
+@supports (view-transition-name: none) {
+  ::view-transition-old(page-content) {
+    animation: 160ms cubic-bezier(0.4, 0, 1, 1) both vt-slide-out;
+  }
+  ::view-transition-new(page-content) {
+    animation: 220ms cubic-bezier(0, 0, 0.2, 1) 40ms both vt-slide-in;
+  }
+  /* 站点标题不参与过渡动画，保持稳定 */
+  ::view-transition-old(site-title),
+  ::view-transition-new(site-title) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/* ── @starting-style — Skill 卡片入场动画 ── */
+.skill-card {
+  transition: opacity 0.22s cubic-bezier(0, 0, 0.2, 1),
+              transform 0.22s cubic-bezier(0, 0, 0.2, 1),
+              box-shadow 0.15s ease;
+}
+@supports (selector(:has(*))) {
+  @starting-style {
+    .skill-card {
+      opacity: 0;
+      transform: translateY(7px);
+    }
+  }
+}
+
+/* ── Typewriter 光标 ── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.tw-cursor::after {
+  content: '▌';
+  font-size: 0.8em;
+  animation: cursor-blink 0.65s step-end infinite;
+  margin-left: 1px;
+  color: var(--color-code);
+  vertical-align: baseline;
+}
+
+/* ── 滚动压缩 header ── */
+.header-scrolled {
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+}
+
 /* ── 无障碍：减少动画偏好 ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

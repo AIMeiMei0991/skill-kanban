@@ -7,6 +7,7 @@ interface Props {
   skill: Skill
   pluginId?: string
   featured?: boolean
+  index?: number
 }
 
 // 5个语义分组，CSS class 定义在 index.css — 深/亮色双套
@@ -29,7 +30,7 @@ const TAG_GROUP: Record<string, string> = {
   skills: 'tag-skills',
 }
 
-export default function SkillCard({ skill, pluginId, featured }: Props) {
+export default function SkillCard({ skill, pluginId, featured, index = 0 }: Props) {
   const [copied, setCopied] = useState(false)
   const { showToast } = useToast()
 
@@ -49,19 +50,28 @@ export default function SkillCard({ skill, pluginId, featured }: Props) {
     setTimeout(() => setCopied(false), 1500)
   }
 
+  // Staggered @starting-style delay — cascading entry effect
+  const staggerStyle = {
+    transitionDelay: `${Math.min(index * 28, 280)}ms`,
+  }
+
   if (featured) {
     return (
-      <article className="bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/50">
-        <div className="flex items-start justify-between gap-2 mb-2">
+      <article
+        className="skill-card bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/50 group relative overflow-hidden"
+        style={staggerStyle}
+      >
+        {/* Accent sweep line — slides in from left on hover */}
         <div className="absolute inset-x-0 top-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
-        <h3 className="font-mono text-base font-semibold text-text min-w-0 break-words">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-mono text-base font-semibold text-text min-w-0 break-words">
             {skill.name}
           </h3>
           <button
             title="复制调用命令"
             aria-label="复制调用命令"
             onClick={handleCopy}
-            className="shrink-0 p-1.5 rounded text-muted hover:text-text transition-colors"
+            className="shrink-0 p-1.5 rounded text-muted hover:text-text transition-[color,transform] duration-150 active:scale-75"
           >
             {copied ? <Check size={15} className="text-code" /> : <Copy size={15} />}
           </button>
@@ -86,10 +96,12 @@ export default function SkillCard({ skill, pluginId, featured }: Props) {
 
   return (
     <article
-      className="bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/30 group relative overflow-hidden"
+      className="skill-card bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/30 group relative overflow-hidden"
+      style={staggerStyle}
     >
-      <div className="flex items-start justify-between gap-2 mb-2">
+      {/* Accent sweep line — slides in from left on hover */}
       <div className="absolute inset-x-0 top-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
+      <div className="flex items-start justify-between gap-2 mb-2">
         <h3 className="font-mono text-sm font-semibold text-text min-w-0 break-words">
           {skill.name}
         </h3>

@@ -188,6 +188,7 @@ export default function CatalogPage() {
                       skill={skill}
                       pluginId={selectedPlugin.id === 'local' ? undefined : selectedPlugin.id}
                       featured={i === 0}
+                      index={i}
                     />
                   ))}
                 </div>
@@ -196,11 +197,12 @@ export default function CatalogPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {filteredSkills.map(skill => (
+            {filteredSkills.map((skill, i) => (
               <SkillCard
                 key={skill.id}
                 skill={skill}
                 pluginId={selectedPlugin.id === 'local' ? undefined : selectedPlugin.id}
+                index={i}
               />
             ))}
           </div>
