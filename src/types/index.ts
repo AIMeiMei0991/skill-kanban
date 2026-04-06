@@ -17,3 +17,12 @@ export interface SkillFlow {
   skill_ids: string[]
   created_at: string
 }
+
+export interface Plugin {
+  id: string
+  name: string
+  registry: string
+  description: string
+  install_command: string
+  skill_ids: string[]
+}
