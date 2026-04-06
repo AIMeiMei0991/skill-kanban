@@ -1,0 +1,189 @@
+[
+  {
+    "id": "algorithmic-art",
+    "name": "algorithmic-art",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/algorithmic-art",
+    "description": "用 p5.js 创建带种子随机性的生成艺术",
+    "usage": "当用户需要生成算法艺术、可交互可视化时触发",
+    "tags": ["design", "art", "creative"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "brand-guidelines",
+    "name": "brand-guidelines",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/brand-guidelines",
+    "description": "将 Anthropic 官方品牌色和排版应用到制品",
+    "usage": "需要 Anthropic 视觉风格时触发",
+    "tags": ["design", "brand"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "canvas-design",
+    "name": "canvas-design",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/canvas-design",
+    "description": "创作博物馆级视觉设计，输出 PNG/PDF",
+    "usage": "需要创作海报、艺术品等静态设计时触发",
+    "tags": ["design", "art"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "claude-api",
+    "name": "claude-api",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/claude-api",
+    "description": "使用 Claude API/SDK 构建 LLM 应用，支持 Python/TS/Go 等多语言",
+    "usage": "代码导入 anthropic/@anthropic-ai/sdk 或用户要用 Claude API 时触发",
+    "tags": ["api", "development"],
+    "sub_skills": ["python", "typescript", "go", "java", "ruby", "csharp", "php", "curl"],
+    "dependencies": []
+  },
+  {
+    "id": "doc-coauthoring",
+    "name": "doc-coauthoring",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/doc-coauthoring",
+    "description": "三阶段结构化协作流程创作技术文档",
+    "usage": "需要创作规格、提案、决策文档时触发",
+    "tags": ["writing", "docs"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "docx",
+    "name": "docx",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/docx",
+    "description": "创建、编辑、分析 Word 文档",
+    "usage": "处理 .docx 文件时触发",
+    "tags": ["docs", "office"],
+    "sub_skills": [],
+    "dependencies": ["npm install -g docx"]
+  },
+  {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/frontend-design",
+    "description": "创建生产级前端界面，避免通用 AI 美学",
+    "usage": "构建 Web 组件、页面、Dashboard 时触发",
+    "tags": ["frontend", "design", "ui"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "internal-comms",
+    "name": "internal-comms",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/internal-comms",
+    "description": "撰写内部公司沟通文件（团队更新、FAQ、事故报告等）",
+    "usage": "需要写内部公告、状态报告时触发",
+    "tags": ["writing", "communication"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "mcp-builder",
+    "name": "mcp-builder",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/mcp-builder",
+    "description": "构建 Model Context Protocol 服务器，四阶段结构化流程",
+    "usage": "需要构建 MCP server 时触发",
+    "tags": ["development", "mcp"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "pdf",
+    "name": "pdf",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/pdf",
+    "description": "PDF 读取/合并/拆分/提取/加密/OCR 全操作",
+    "usage": "处理 PDF 文件时触发",
+    "tags": ["docs", "pdf"],
+    "sub_skills": [],
+    "dependencies": ["pip install pypdf pdfplumber reportlab pytesseract pdf2image"]
+  },
+  {
+    "id": "pptx",
+    "name": "pptx",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/pptx",
+    "description": "创建/编辑专业 PowerPoint 演示文稿，内置设计规范",
+    "usage": "需要创建或编辑 PPT 时触发",
+    "tags": ["docs", "office", "design"],
+    "sub_skills": [],
+    "dependencies": ["pip install \"markitdown[pptx]\" Pillow", "npm install -g pptxgenjs"]
+  },
+  {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/skill-creator",
+    "description": "开发新 skill：起草→测试→审查→迭代",
+    "usage": "需要创建或改进 skill 时触发",
+    "tags": ["development", "skills"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "slack-gif-creator",
+    "name": "slack-gif-creator",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/slack-gif-creator",
+    "description": "创建 Slack 优化的动画 GIF",
+    "usage": "需要制作 Slack GIF 表情时触发",
+    "tags": ["design", "creative"],
+    "sub_skills": [],
+    "dependencies": ["pip install pillow imageio numpy"]
+  },
+  {
+    "id": "theme-factory",
+    "name": "theme-factory",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/theme-factory",
+    "description": "为制品添加主题样式，10种预设 + 自定义主题",
+    "usage": "需要为演示文稿或制品统一视觉风格时触发",
+    "tags": ["design", "theme"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "web-artifacts-builder",
+    "name": "web-artifacts-builder",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/web-artifacts-builder",
+    "description": "用 React+Tailwind+shadcn/ui 创建单文件 HTML 制品",
+    "usage": "需要创建复杂多组件 claude.ai HTML 制品时触发",
+    "tags": ["frontend", "development"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "webapp-testing",
+    "name": "webapp-testing",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/webapp-testing",
+    "description": "用 Playwright 测试本地 Web 应用，支持截图和 DOM 检查",
+    "usage": "需要自动化测试本地 Web 应用时触发",
+    "tags": ["testing", "development"],
+    "sub_skills": [],
+    "dependencies": []
+  },
+  {
+    "id": "xlsx",
+    "name": "xlsx",
+    "source": "anthropics/skills",
+    "install_command": "claude skill add anthropics/skills/xlsx",
+    "description": "创建/编辑/分析 Excel 电子表格，支持公式和格式",
+    "usage": "处理 .xlsx/.csv/.tsv 文件时触发",
+    "tags": ["docs", "office"],
+    "sub_skills": [],
+    "dependencies": []
+  }
+]
