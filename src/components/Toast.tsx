@@ -90,7 +90,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="flex items-center gap-2 bg-surface border border-border rounded-lg px-4 py-2.5 shadow-lg max-w-[min(90vw,480px)]">
-          <Check size={13} className="text-code shrink-0" />
+          <Check size={13} className="text-accent shrink-0" />
           <span className="text-sm break-all">
             {toast.visible && <ToastMessage text={toast.message} />}
           </span>

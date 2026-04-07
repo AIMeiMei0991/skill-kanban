@@ -106,7 +106,7 @@ export default function CatalogPage() {
               onDrop={handleDrop}
               className="flex items-stretch group"
             >
-              <div className="flex items-center px-1 cursor-grab opacity-0 group-hover:opacity-40 hover:!opacity-80 transition-opacity text-muted shrink-0">
+              <div className="flex items-center px-1 cursor-grab opacity-20 group-hover:opacity-60 hover:!opacity-90 transition-opacity text-muted shrink-0">
                 <GripVertical size={12} />
               </div>
               <button
@@ -117,17 +117,9 @@ export default function CatalogPage() {
                     : 'border-transparent text-muted hover:text-text hover:border-border'
                 }`}
               >
-                <span className="flex items-center gap-1.5 min-w-0">
-                  {plugin.type === 'memory' && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-memory shrink-0" />
-                  )}
-                  {plugin.type === 'local' && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-local shrink-0" />
-                  )}
+                <span className="flex items-center justify-between gap-2 min-w-0">
                   <span className="truncate">{plugin.name}</span>
-                </span>
-                <span className="block text-[10px] opacity-60 mt-0.5">
-                  {plugin.skill_ids.length} skills
+                  <span className="text-[10px] opacity-50 tabular-nums shrink-0">{plugin.skill_ids.length}</span>
                 </span>
               </button>
             </li>

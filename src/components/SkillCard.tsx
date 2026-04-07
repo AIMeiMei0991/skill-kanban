@@ -58,7 +58,7 @@ export default function SkillCard({ skill, pluginId, featured, index = 0 }: Prop
   if (featured) {
     return (
       <article
-        className="skill-card bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/50 group relative overflow-hidden"
+        className="skill-card lg:col-span-2 bg-surface border border-border rounded-lg p-4 transition-[border-color] duration-150 hover:border-accent/50 group relative overflow-hidden"
         style={staggerStyle}
       >
         {/* Accent sweep line — slides in from left on hover */}

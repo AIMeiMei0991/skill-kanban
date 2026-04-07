@@ -171,9 +171,9 @@ export default function FlowsPage() {
     }, 0)
 
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-4xl">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-sm text-muted">
+        <h2 className="font-display italic text-2xl text-muted/70">
           {flows.length} 个 Skill 流
         </h2>
         <button
@@ -216,7 +216,7 @@ export default function FlowsPage() {
             <PluginSelector selectedIds={newPluginIds} onToggle={toggleNewPlugin} />
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center flex-wrap">
             <button
               onClick={handleCreate}
               disabled={!newName.trim() || newPluginIds.size === 0}
@@ -231,6 +231,11 @@ export default function FlowsPage() {
             >
               取消
             </button>
+            {(!newName.trim() || newPluginIds.size === 0) && (
+              <p className="text-xs text-muted/60 w-full mt-0.5">
+                {!newName.trim() ? '请先输入流的名称' : '请至少选择 1 个插件包'}
+              </p>
+            )}
           </div>
         </div>
       )}
@@ -292,7 +297,7 @@ export default function FlowsPage() {
                 <div className="mb-4">
                   <PluginSelector selectedIds={editPluginIds} onToggle={toggleEditPlugin} />
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-center flex-wrap">
                   <button
                     onClick={() => handleSaveEdit(flow)}
                     disabled={!editName.trim() || editPluginIds.size === 0}
@@ -307,6 +312,11 @@ export default function FlowsPage() {
                   >
                     取消
                   </button>
+                  {(!editName.trim() || editPluginIds.size === 0) && (
+                    <p className="text-xs text-muted/60 w-full mt-0.5">
+                      {!editName.trim() ? '请先输入流的名称' : '请至少选择 1 个插件包'}
+                    </p>
+                  )}
                 </div>
               </div>
             ) : (
@@ -314,7 +324,7 @@ export default function FlowsPage() {
               <div className="p-4">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="text-sm font-semibold text-text">{flow.name}</h3>
+                    <h3 className="font-display italic text-lg text-accent">{flow.name}</h3>
                     {flow.description && (
                       <p className="text-xs text-muted mt-0.5 leading-relaxed">{flow.description}</p>
                     )}

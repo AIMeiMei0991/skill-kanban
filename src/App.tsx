@@ -50,11 +50,11 @@ export default function App() {
       <div className={`min-h-screen bg-bg text-text font-sans${isDark ? '' : ' light'}`}>
         {/* Header — sticky + scroll-compressed */}
         <header
-          className={`sticky top-0 z-40 border-b border-border px-4 sm:px-6 transition-[padding,background,backdrop-filter] duration-200 ${
+          className={`sticky top-0 z-40 border-b border-border transition-[padding,background,backdrop-filter] duration-200 ${
             scrolled ? 'py-2.5 header-scrolled' : 'py-4'
           }`}
         >
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
             <h1
               style={{ viewTransitionName: 'site-title' }}
               className={`font-display italic font-semibold text-accent shrink-0 transition-[font-size] duration-200 ${
