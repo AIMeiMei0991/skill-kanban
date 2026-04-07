@@ -4,16 +4,6 @@ import CatalogPage from './pages/CatalogPage'
 import FlowsPage from './pages/FlowsPage'
 import { ToastProvider } from './components/Toast'
 
-// View Transitions API type augmentation
-declare global {
-  interface Document {
-    startViewTransition?: (callback: () => void | Promise<void>) => {
-      ready: Promise<void>
-      finished: Promise<void>
-      updateCallbackDone: Promise<void>
-    }
-  }
-}
 
 type Tab = 'catalog' | 'flows'
 

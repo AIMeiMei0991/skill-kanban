@@ -6,7 +6,7 @@ import type { SkillFlow } from '../types'
 const mockFlow: SkillFlow = {
   id: 'flow-1',
   name: '新项目标配',
-  skill_ids: ['frontend-design', 'mcp-builder'],
+  plugin_ids: ['frontend-design', 'mcp-builder'],
   created_at: '2026-04-06T00:00:00Z',
 }
 
