@@ -25,7 +25,7 @@ export default function PluginHeader({ plugin, skillCount }: Props) {
   async function handleCopy() {
     await navigator.clipboard.writeText(fullCommand)
     setCopied(true)
-    showToast(fullCommand)
+    showToast(`已复制 ${plugin.name} 安装命令`)
     setTimeout(() => setCopied(false), 1500)
   }
 
