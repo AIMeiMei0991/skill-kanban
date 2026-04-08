@@ -29,6 +29,7 @@
     "name": "pua",
     "registry": "pua-skills",
     "description": "高强度目标导向的 AI 驱动框架，以企业绩效文化逼迫 AI 穷尽一切手段解决问题，多种语言与风格模式可选",
+    "prereq_command": "claude plugin marketplace add tanweai/pua",
     "install_command": "claude plugin install pua@pua-skills",
     "type": "plugin",
     "skill_ids": [
@@ -68,6 +69,7 @@
     "name": "anthropic",
     "registry": "anthropic-agent-skills",
     "description": "Anthropic 官方示例技能包，涵盖文档创作、前端设计、PDF/Excel/PPT 处理、算法艺术等 17 项生产力技能",
+    "prereq_command": "claude plugin marketplace add anthropics/skills",
     "install_command": "claude plugin install example-skills@anthropic-agent-skills",
     "type": "plugin",
     "skill_ids": [
@@ -96,6 +98,7 @@
     "name": "web-access",
     "registry": "web-access",
     "description": "为 Claude Code 提供完整联网能力：网页搜索、URL 抓取、内容解析，支持实时信息查询",
+    "prereq_command": "claude plugin marketplace add eze-is/web-access",
     "install_command": "claude plugin install web-access@web-access",
     "type": "plugin",
     "skill_ids": [
@@ -129,7 +132,8 @@
     "name": "impeccable",
     "registry": "pbakaus",
     "description": "AI 设计流畅性技能包：覆盖排版、色彩、布局、动效的专业设计语言，20 个设计命令形成完整设计工作流",
-    "install_command": "npx skills add pbakaus/impeccable",
+    "prereq_command": "claude plugin marketplace add pbakaus/impeccable",
+    "install_command": "claude plugin install impeccable@impeccable",
     "type": "plugin",
     "skill_ids": [
       "impeccable-audit",
@@ -154,6 +158,25 @@
       "impeccable-extract"
     ],
     "url": "https://github.com/pbakaus/impeccable"
+  },
+  {
+    "id": "ui-ux-pro-max",
+    "name": "ui-ux-pro-max",
+    "registry": "ui-ux-pro-max-skill",
+    "description": "AI 驱动的设计智能技能：67 种 UI 风格、161 套配色、57 组字体搭配、99 条 UX 准则、25 种图表，覆盖 15+ 技术栈的一站式设计系统生成器",
+    "prereq_command": "claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "type": "plugin",
+    "skill_ids": [
+      "ui-ux-pro-max",
+      "ckm-design",
+      "ckm-design-system",
+      "ckm-banner-design",
+      "ckm-brand",
+      "ckm-slides",
+      "ckm-ui-styling"
+    ],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
   },
   {
     "id": "local",

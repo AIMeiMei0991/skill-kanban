@@ -28,6 +28,7 @@ export interface Plugin {
   name: string
   registry: string
   description: string
+  prereq_command?: string
   install_command: string
   skill_ids: string[]
   type?: PluginType

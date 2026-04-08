@@ -7,10 +7,14 @@ import { getFlows, saveFlow, deleteFlow } from '../lib/storage'
 const plugins = (pluginsData as Plugin[]).filter(p => p.install_command)
 
 function generateCommand(flow: SkillFlow): string {
-  const cmds = flow.plugin_ids
+  const prereqs = flow.plugin_ids
+    .map(id => plugins.find(p => p.id === id)?.prereq_command)
+    .filter(Boolean) as string[]
+  const installs = flow.plugin_ids
     .map(id => plugins.find(p => p.id === id)?.install_command)
     .filter(Boolean) as string[]
-  return [...new Set(cmds)].join(' && \\\n')
+  const allCmds = [...new Set([...prereqs, ...installs])]
+  return allCmds.join(' && \\\n')
 }
 
 // 插件多选列表（创建和编辑共用）

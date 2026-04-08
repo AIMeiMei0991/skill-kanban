@@ -18,10 +18,14 @@ export default function PluginHeader({ plugin, skillCount }: Props) {
   const [copied, setCopied] = useState(false)
   const { showToast } = useToast()
 
+  const fullCommand = plugin.prereq_command
+    ? `${plugin.prereq_command} && ${plugin.install_command}`
+    : plugin.install_command
+
   async function handleCopy() {
-    await navigator.clipboard.writeText(plugin.install_command)
+    await navigator.clipboard.writeText(fullCommand)
     setCopied(true)
-    showToast(plugin.install_command)
+    showToast(fullCommand)
     setTimeout(() => setCopied(false), 1500)
   }
 
@@ -92,7 +96,7 @@ export default function PluginHeader({ plugin, skillCount }: Props) {
       {plugin.install_command && (
         <div className="flex items-center gap-2 bg-surface rounded border border-border px-3 py-2">
           <code className="flex-1 text-xs font-mono text-code break-all">
-            {plugin.install_command}
+            {fullCommand}
           </code>
           <button
             title="复制安装命令"

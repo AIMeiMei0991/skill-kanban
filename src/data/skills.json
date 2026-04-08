@@ -1150,6 +1150,122 @@
     "url": "https://github.com/pbakaus/impeccable"
   },
   {
+    "id": "ui-ux-pro-max",
+    "name": "ui-ux-pro-max",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "AI 设计智能引擎：分析项目需求后自动生成完整设计系统，内置 67 种 UI 风格、161 套行业配色、57 组字体搭配、99 条 UX 准则、25 种图表，支持 React/Vue/SwiftUI/Flutter 等 15+ 技术栈",
+    "usage": "构建页面/应用时自动激活，或用 /ui-ux-pro-max 触发设计系统生成",
+    "tags": [
+      "design",
+      "ui",
+      "ux",
+      "design-system",
+      "frontend"
+    ],
+    "sub_skills": [],
+    "dependencies": [
+      "python3"
+    ],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-design",
+    "name": "ckm:design",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "综合设计技能：品牌识别、设计 Token、Logo 生成（55 种风格 + Gemini AI）、企业 VI 系统（50+ 交付物）、社交媒体素材、横幅广告",
+    "usage": "需要品牌设计、Logo、企业 VI、社交素材时触发",
+    "tags": [
+      "design",
+      "brand",
+      "creative"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-design-system",
+    "name": "ckm:design-system",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "三层 Token 架构（原始→语义→组件）、CSS 变量、间距/排版比例、组件规范、战略幻灯片生成",
+    "usage": "需要建立设计系统、定义 Token 体系、组件规范时触发",
+    "tags": [
+      "design-system",
+      "design",
+      "frontend"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-banner-design",
+    "name": "ckm:banner-design",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "横幅/广告设计：社交媒体、广告位、网站 Hero、创意素材，多种艺术方向 + AI 生成视觉",
+    "usage": "需要设计 Banner、广告图、Hero 区域时触发",
+    "tags": [
+      "design",
+      "creative",
+      "marketing"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-brand",
+    "name": "ckm:brand",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "品牌治理全流程：品牌声音定义、视觉识别、信息框架、资产管理、品牌合规审查、风格指南",
+    "usage": "需要定义品牌调性、创建风格指南、品牌合规审查时触发",
+    "tags": [
+      "brand",
+      "design",
+      "marketing"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-slides",
+    "name": "ckm:slides",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "HTML 战略演示文稿：Chart.js 数据图表、设计 Token、响应式布局、文案公式、上下文幻灯片策略",
+    "usage": "需要创建演示文稿、数据报告幻灯片时触发",
+    "tags": [
+      "presentation",
+      "design",
+      "creative"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
+    "id": "ckm-ui-styling",
+    "name": "ckm:ui-styling",
+    "source": "ui-ux-pro-max-skill",
+    "install_command": "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+    "description": "基于 shadcn/ui（Radix UI + Tailwind）构建美观、无障碍的 UI 组件与布局",
+    "usage": "需要用 shadcn/ui + Tailwind 开发 UI 组件时触发",
+    "tags": [
+      "ui",
+      "frontend",
+      "design"
+    ],
+    "sub_skills": [],
+    "dependencies": [],
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+  },
+  {
     "id": "ux-audit",
     "name": "ux-audit",
     "source": "local",
