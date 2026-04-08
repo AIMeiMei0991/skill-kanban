@@ -17,23 +17,34 @@ export function useToast() {
 }
 
 /** Typewriter effect for the command portion of a toast message.
- *  Splits on the first '/' to animate the command string character-by-character.
+ *  Splits on the first '/' or '已复制 ' prefix to animate the command/name portion.
  */
 function ToastMessage({ text }: { text: string }) {
   const slashIdx = text.indexOf('/')
-  if (slashIdx === -1) {
-    return <span>{text}</span>
+  if (slashIdx !== -1) {
+    const prefix  = text.slice(0, slashIdx)
+    const command = text.slice(slashIdx)
+    return (
+      <span>
+        {prefix && <span className="text-muted">{prefix}</span>}
+        <TypewriterCommand text={command} />
+      </span>
+    )
   }
 
-  const prefix  = text.slice(0, slashIdx)
-  const command = text.slice(slashIdx)
+  // For non-slash messages like "已复制 xxx 安装命令"
+  const copyPrefix = '已复制 '
+  if (text.startsWith(copyPrefix)) {
+    const rest = text.slice(copyPrefix.length)
+    return (
+      <span>
+        <span className="text-muted">{copyPrefix}</span>
+        <TypewriterCommand text={rest} />
+      </span>
+    )
+  }
 
-  return (
-    <span>
-      {prefix && <span className="text-muted">{prefix}</span>}
-      <TypewriterCommand text={command} />
-    </span>
-  )
+  return <span>{text}</span>
 }
 
 function TypewriterCommand({ text }: { text: string }) {
@@ -71,8 +82,14 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     if (timerRef.current) clearTimeout(timerRef.current)
     setToast({ message, visible: true })
     // Keep visible long enough for typewriter to finish + short read time
-    const cmdLen = message.includes('/') ? message.length - message.indexOf('/') : 0
-    const duration = 1400 + cmdLen * 18
+    const copyPrefix = '已复制 '
+    let animLen = 0
+    if (message.includes('/')) {
+      animLen = message.length - message.indexOf('/')
+    } else if (message.startsWith(copyPrefix)) {
+      animLen = message.length - copyPrefix.length
+    }
+    const duration = 1400 + animLen * 18
     timerRef.current = setTimeout(() => {
       setToast(t => ({ ...t, visible: false }))
     }, duration)
